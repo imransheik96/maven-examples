@@ -14,13 +14,14 @@ node {
      sh 'mvn test'
       } 
     }
-   
+      stage('Sonarqube analysis'){
+      def scannerHome = tool 'javascanner';
    withSonarQubeEnv(credentialsId: 'sonarcloud') {
     withMaven(jdk: 'java', maven: 'maven') {
     sh 'mvn sonar:sonar' 
       }
     }
- 
+ }
    stage('Package to Jfrog') {
     withMaven(jdk: 'java', maven: 'maven') {
      sh 'mvn package'
