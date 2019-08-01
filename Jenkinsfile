@@ -17,7 +17,7 @@ node {
    
    withSonarQubeEnv() {
     withMaven(jdk: 'java', maven: 'maven') {
-    sh 'mvn sonar:sonar' 
+    sh 'mvn sonar:sonar -Dsonar.projectKey=maven-example -Dsonar.organization=imransheik96 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=38fe6003597b3359528701c9bfe21c44999a5537' 
       }
     }
   stage("Quality Gate"){
