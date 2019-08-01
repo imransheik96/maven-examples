@@ -29,7 +29,7 @@ node {
           }
     }
    stage('Package to Jfrog') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'java', maven: 'maven') {
      sh 'mvn package'
       }
     }
