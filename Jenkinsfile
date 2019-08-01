@@ -5,18 +5,18 @@ node {
      
     }
    stage('Build') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'java', maven: 'maven') {
       sh 'mvn clean compile'
       }
     }
    stage('Unit Test run') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'java', maven: 'maven') {
      sh 'mvn test'
       } 
     }
    
    withSonarQubeEnv(credentialsId: 'sonarqubeid') {
-    withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
+    withMaven(jdk: 'java', maven: 'maven') {
     sh 'mvn sonar:sonar' 
       }
     }
