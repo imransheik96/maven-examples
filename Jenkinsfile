@@ -17,7 +17,7 @@ node {
      
    withSonarQubeEnv(credentialsId: 'sonarcloud') {
     withMaven(jdk: 'java', maven: 'maven') {
-    sh 'mvn sonar:sonar' 
+    sh 'mvn clean compile sonar:sonar' 
       }
     }
    stage('Package to Jfrog') {
