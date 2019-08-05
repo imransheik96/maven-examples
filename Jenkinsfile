@@ -15,11 +15,11 @@ node {
       } 
     }
      
-stage('Sonarqube analysis'){
+     stage('Sonarqube analysis'){
       def scannerHome = tool 'javascanner';
-   withSonarQubeEnv(credentialsId: 'sonarcloud') {
-    withMaven(jdk: 'java', maven: 'maven') {
-    sh 'mvn sonar:sonar' 
+       withSonarQubeEnv(credentialsId: 'sonarcloud') {
+       withMaven(jdk: 'java', maven: 'maven') {
+       sh 'mvn sonar:sonar' 
       }
     }
 }
